@@ -1,0 +1,31 @@
+library(tidyverse)
+# Beispiel Schulweg von zehn Kindern - Werte eingeben und Datensatz erzeugen
+ schule <-data.frame( 
+  i = c(1,2,3,4,5,6,7,8,9,10), 
+  schulweg = c(0.5, 1.0, 1.0, 2.0, 2.2, 3.1, 3.4, 3.4, 4.0, 4.3), 
+  name = c("Anke","Bert","Clara","Ingrid","Gert","Franka","Emilia","Hans","Jochen","Dieter"), 
+  gruppe = as.factor (c("kurz","kurz","kurz","kurz","kurz","weit","weit","weit","weit", "weit")),
+  schulbus =c(FALSE, FALSE, FALSE, TRUE, FALSE, FALSE, TRUE, TRUE, NA, TRUE))
+# Datensatz wurde erzeugt
+ schule # zeigt den gerade erzeugten Datensatz schule an
+# Datensatz für join-Befehle anlegen
+ verspaetung <-data.frame(i = c(17,2,3,4,5,6,7,8,9,10), zuspaet =c(0, 1, 0, 2, 0,  3, 7, 5, 6, 5))
+verspaetung # zeigt Ergebnis an
+# Join
+ schule_full <- full_join(schule, verspaetung, by = "i")
+ schule_full # zeigt Ergebnis an
+ schule_inner <- inner_join(schule, verspaetung, by = "i")
+ schule_inner # zeigt Ergebnis an
+ schule_left <- left_join(schule, verspaetung, by = "i")
+ schule_left # zeigt Ergebnis an
+# rbind
+# Datensatz mit fünf weiteren Kindern und identische Variablen – für rbind
+ plus5 <-data.frame( 
+   i = c(11,12,13,14,15), schulweg = c(0.6, 1.8, 1.1, 5.0, 2.2), 
+   name = c("Norbert","Ottilie","Maria","Klara","Lars"), 
+   gruppe = as.factor (c("kurz","kurz","kurz","weit","kurz")),
+   schulbus =c(FALSE, FALSE, FALSE, TRUE, TRUE))
+ plus5 # zeigt Ergebnis an
+ schule_rbind <- rbind(schule, plus5) 
+ schule_rbind # zeigt Ergebnis an
+
