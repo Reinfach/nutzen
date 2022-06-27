@@ -1,0 +1,10 @@
+# Beispieldatensatz zehn Unternehmen mit Beschäftigen
+unternehmen <-data.frame( 
+  i = c(1,2,3,4,5,6,7,8,9,10), 
+  beschaeftigte = c(156, 35, 13, 423, 1545, 128, 18, 24, 876, 11), 
+  firmenname = c("Metall Maier", "ITComplete", "CNC Expert", "S&P Beratung", "Ventile Gruber", "Steuerbüro Max", "WindEnergy", "PersonalFlex", "XScrews", "ServerCare"), 
+  branche = as.factor(c("Industrie" ,"Dienstl.", "Industrie" ,"Dienstl.",        "Industrie", "Dienstl.", "Industrie", "Dienstl.", "Industrie", "Dienstl.")),
+  betriebsrat =c(TRUE, FALSE, FALSE, TRUE, TRUE, FALSE, TRUE, NA, TRUE, FALSE))
+
+# Ergebnis prüfen!
+
